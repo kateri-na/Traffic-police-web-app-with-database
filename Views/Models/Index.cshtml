@@ -1,0 +1,49 @@
+﻿@model IEnumerable<C__laba_2_console_traffic_police.Models.Model>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Model`s information</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ModelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.imgPath)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModelName)
+            </td>
+            <td>
+                    @*@{
+                        var base64 = Convert.ToBase64String(item.imgPath);
+                        var imgsrc = string.Format("data:image/gif;base64;{0}", base64);
+                    }
+                    <img src = '@imgsrc' style="max-width:100px;max-height:100px"/>*@
+                    @if (item.imgPath != null)
+                    {
+                     <div class="pull-left" style="margin-right: 10px">
+                        <img class="img-thumbnail" width="100" height="100"
+                                 src="@Url.Action("GetImage", "Models",
+                     new { item.ModelId })" />
+                    </div>
+                    }
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ModelId">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.ModelId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

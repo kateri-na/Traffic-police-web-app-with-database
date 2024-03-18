@@ -1,0 +1,59 @@
+﻿@model C__laba_2_console_traffic_police.Models.Driver
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Driver</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="DriverId" />
+            <div class="form-group">
+                <label asp-for="DriverName" class="control-label"></label>
+                <input asp-for="DriverName" class="form-control" />
+                <span asp-validation-for="DriverName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DriverSurname" class="control-label"></label>
+                <input asp-for="DriverSurname" class="form-control" />
+                <span asp-validation-for="DriverSurname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DriverMiddleName" class="control-label"></label>
+                <input asp-for="DriverMiddleName" class="form-control" />
+                <span asp-validation-for="DriverMiddleName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DriverAddress" class="control-label"></label>
+                <input asp-for="DriverAddress" class="form-control" />
+                <span asp-validation-for="DriverAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DriverPhoneNumber" class="control-label"></label>
+                <input asp-for="DriverPhoneNumber" class="form-control" />
+                <span asp-validation-for="DriverPhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="driverLicenceID" class="control-label"></label>
+                <input asp-for="driverLicenceID" class="form-control" />
+                <span asp-validation-for="driverLicenceID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
